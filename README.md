@@ -1,3 +1,26 @@
-# IKPortfolioExpressAPI
-# IKPortfolioExpressAPI
-# IKPortfolioExpressAPI
+# Setup
+
+> npm install
+> setup .env |
+
+### MONGODB VARS
+DB_HOST=
+DB_PORT=
+
+DB_NAME=
+DB_ADMIN_COLLECTION=
+DB_PROJECTS_COLLECTION=
+
+DB_USER=
+DB_PASS=
+
+
+### ADMIN ACCOUNT DB CREATION VARS
+ADMIN_EMAIL=
+ADMIN_PASS=
+
+MAIL=
+MAIL_PASS=
+
+### EXPRESS VARS
+EXPRESS_PORT=
