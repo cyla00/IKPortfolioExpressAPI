@@ -1,7 +1,7 @@
 # Setup
 
-> npm install
-> setup .env |
+> npm install <br />
+> setup .env |<br />
 
 ### MONGODB VARS
 DB_HOST=<br />
