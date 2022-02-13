@@ -143,6 +143,7 @@ app.post('/admin/remove', function(req, res){
                 if (err) throw err
                 client.close()
                 res.sendStatus(200)
+                console.log(obj.value)
 
                 async function main(){
                     var transporter = nodemailer.createTransport({
@@ -160,6 +161,7 @@ app.post('/admin/remove', function(req, res){
                     subject: '⚠️IMPORTANT! Project Removed!❌',
                     html: `
                         <h1>❌a project has been removed❌</h1>
+                        <p>Project Name: ${obj.value.title}</p>
                         <p>Project _ID: ${project_id}</p>
                         <p>today: ${date}</p>
                     `,
