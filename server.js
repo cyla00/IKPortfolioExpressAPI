@@ -233,7 +233,16 @@ app.post('/api/contactme', async function(req, res){
 })
 
 
+// HANDLE PRODUCTION
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(__dirname + '/public'))
+
+    app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
+}
+
+
+
 // START SERVER
-app.listen(process.env.EXPRESS_PORT, () => {
+app.listen(process.env.EXPRESS_PORT || 3000, () => {
     console.log(`up on port:${process.env.EXPRESS_PORT}`)
 })
