@@ -27,7 +27,7 @@ var today = new Date();
 var date = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate() + " " +  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
 // ADMIN LOGIN
-app.post('/login', function(req, res){
+app.post('/api/login', function(req, res){
     var b64auth = (req.headers.authorization || '').split(' ')[1] || ''
     var [admin_email, admin_password] = Buffer.from(b64auth, 'base64').toString().split(':')
 
@@ -70,7 +70,7 @@ app.post('/login', function(req, res){
 })
 
 // ADMIN ADD PROJECT
-app.post('/admin/add', function(req, res){
+app.post('/api/admin/add', function(req, res){
     var id = uuidv4()
     var title = req.body.data.title
     var description = req.body.data.description
@@ -127,7 +127,7 @@ app.post('/admin/add', function(req, res){
 })
 
 // ADMIN DELETE PROJECT
-app.post('/admin/remove', function(req, res){
+app.post('/api/admin/remove', function(req, res){
     var project_id = req.body.data.id
     var check_id = req.body.data.check_id
     client = Database()
@@ -143,7 +143,6 @@ app.post('/admin/remove', function(req, res){
                 if (err) throw err
                 client.close()
                 res.sendStatus(200)
-                console.log(obj.value)
 
                 async function main(){
                     var transporter = nodemailer.createTransport({
@@ -195,7 +194,7 @@ app.get('/api/projects', function(req, res){
 
 
 // CONTACT MANAGEMENT
-app.post('/contactme', async function(req, res){
+app.post('/api/contactme', async function(req, res){
     var name = Buffer.from(req.body.name, 'base64').toString('ascii')
     var email = Buffer.from(req.body.email, 'base64').toString('ascii')
     var subject = Buffer.from(req.body.subject, 'base64').toString('ascii')
@@ -235,6 +234,6 @@ app.post('/contactme', async function(req, res){
 
 
 // START SERVER
-app.listen(process.env.EXPRESS_PORT || 4000, () => {
-    console.log(`up: http://localhost:${process.env.EXPRESS_PORT}`)
+app.listen(process.env.EXPRESS_PORT, () => {
+    console.log(`up on port:${process.env.EXPRESS_PORT}`)
 })
