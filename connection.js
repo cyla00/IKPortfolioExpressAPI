@@ -1,6 +1,6 @@
 var { MongoClient } = require('mongodb')
 var { v4: uuidv4 } = require('uuid')
-var SHA256 = require("crypto-js/sha256");
+var SHA256 = require("crypto-js/sha256")
 
 var user = process.env.DB_USER
 var pass = process.env.DB_PASS

@@ -23,8 +23,8 @@ buildDB()
 
 var client
 
-var today = new Date();
-var date = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate() + " " +  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var today = new Date()
+var date = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate() + " " +  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
 
 // ADMIN LOGIN
 app.post('/api/login', function(req, res){
