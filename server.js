@@ -5,6 +5,7 @@ var { v4: uuidv4 } = require('uuid')
 
 var nodemailer = require('nodemailer')
 
+var path = require('path')
 var express = require('express')
 var cookieParser = require("cookie-parser")
 var cors = require('cors')
