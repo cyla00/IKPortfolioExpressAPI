@@ -237,7 +237,6 @@ app.post('/api/contactme', async function(req, res){
 // HANDLE PRODUCTION
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static(__dirname + '/public'))
-
     app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
 }
 
