@@ -8,7 +8,7 @@ var host = process.env.DB_HOST
 var port = process.env.DB_PORT
 var dbName = process.env.DB_NAME
 
-var url = `mongodb://${user}:${pass}@${host}:${port}`
+var url = `mongodb://${user}:${pass}@${host}:${port}/${dbName}`
 var client 
 
 
