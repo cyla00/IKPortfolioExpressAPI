@@ -12,7 +12,7 @@ var cors = require('cors')
 
 var app = express()
 
-app.use(express.static(__dirname))
+// app.use(express.static(__dirname))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
@@ -233,13 +233,12 @@ app.post('/api/contactme', async function(req, res){
     })
 })
 
-
-// HANDLE PRODUCTION
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static(__dirname + '/public'))
-    app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
+    app.get(/.*/, (req, res) => {
+        res.sendFile(__dirname + '/public/index.html')
+    })
 }
-
 
 
 // START SERVER
